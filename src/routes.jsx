@@ -11,6 +11,7 @@ import UserBusinessIntelligence from './app/user-dashboard/business-intelligence
 import UserMarketResearch from './app/user-dashboard/market-research/Main'
 import UserBusinessConsultant from './app/user-dashboard/business-consultant/Main'
 import AdminDashboard from './app/admin-dashboard/Main'
+
 import AdminBusinessIntelligence from './app/admin-dashboard/business-intelligence/Main'
 // import AdminMarketResearch from './app/admin-dashboard/market-research/Main'
 // import AdminBusinessConsultant from './app/admin-dashboard/business-consultant/Main'
@@ -20,6 +21,8 @@ import AdminDashboardGetData from './app/admin-dashboard-getdata/Main'
 import { useState,useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../firebase';
+import AdminBC from './app/admin-dashboard/business consultant/admin-bc';
+import AdminMR from './app/admin-dashboard/market research/adminMR';
 const AppRoutes = () => {
 
 
@@ -43,8 +46,8 @@ const AppRoutes = () => {
       {/* admin dashboard */}
       <Route path="/admin-dashboard" element={<AdminDashboard />} />
       <Route path="/admin-dashboard/BI" element={<AdminBusinessIntelligence />} />
-      {/* <Route path="/admin-dashboard/MR" element={<AdminDashboard />} />
-      <Route path="/admin-dashboard/BC" element={<AdminDashboard />} /> */}
+      <Route path="/admin-dashboard/MR" element={<AdminMR />} />
+      <Route path="/admin-dashboard/BC" element={<AdminBC />} /> 
       <Route path="/coba-upload" element={<CobaUpload />} />
       <Route path="/admin-dashboard-getdata" element={<AdminDashboardGetData />} />
       <Route path="/admin-dashboard-getuser" element={<AdminDashboardGetData />} />

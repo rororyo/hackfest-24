@@ -45,7 +45,7 @@ export default function UserMarketResearch() {
 
       // Simpan informasi file ke Firestore
       const db = getFirestore(app);
-      const fileCollection = collection(db, 'your_files_collection_name'); // Ganti dengan nama koleksi Anda
+      const fileCollection = collection(db, 'market-research'); // Ganti dengan nama koleksi Anda
       const newFileRef = await addDoc(fileCollection, {
         fileName: file.name,
         downloadURL,
