@@ -24,16 +24,16 @@ export default function AdminMR() {
         setLoading(false);
       });
 
-      // Cleanup function
+      
       return () => unsubscribe();
     };
 
-    // Fetch both messages and user accounts
+    
     fetchInput();
     
   })
 
-  // fungsi untuk cari tahu di halaman result atau report
+
   function isActive(input) {
     if (input == true) {
       return 'font-bold underline';
@@ -157,40 +157,8 @@ export default function AdminMR() {
             <select className='bg-[#121212] border col-span-6 w-full px-8 py-3 mb-4' id="mr-dropdown" onClick={updateSelect}></select>
 
 
-            {/* Input nama bisnis */}
-            <div className='flex items-center mb-4'>
-              <label htmlFor='url' className='block text-sm font-medium'>
-                Power BI Url
-              </label>
-            </div>
-            <div className='col-span-6'>
-              <input
-                type="text"
-                id='url'
-                className='w-full border bg-[#121212] rounded-md px-8 py-3 mb-4'
-                placeholder="Insert Your Power BI URL"
-                // value={businessName}
-                // onChange={(e) => setBusinessName(e.target.value)}
-                required
-              />
-            </div>
 
-            {/* Input deskripsi bisnis */}
-            <div className='flex mt-4'>
-              <label htmlFor='recommend' className='block text-sm font-medium'>
-                Recommendation
-              </label>
-            </div>
-            <div className='col-span-6 w-full'>
-              <textarea
-                id='recommend'
-                className='w-full rows-3 border bg-[#121212] resize-none rounded-md px-8 mb-4 pt-3 h-[160px]'
-                placeholder='Desribe Your Recommendation'
-                // value={businessDesc}
-                // onChange={(e) => setBusinessDesc(e.target.value)}
-                required
-              />
-            </div>
+
 
             {/* Input File */}
             <div className='flex items-center mb-4'>

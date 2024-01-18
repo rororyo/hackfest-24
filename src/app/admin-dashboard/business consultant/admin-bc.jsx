@@ -86,34 +86,28 @@ export default function AdminBC() {
               <thead>
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    User
+                    Business Name
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Message
+                  Business Description
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Timestamp
+                  Problem Description
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Download
-                  </th>
+
                 </tr>
               </thead>
               <tbody>
                 {posts.map((post) => (
                   <tr key={post.key}>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      {post.businessName}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
                       {post.fileName}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      {post.period}
+                      {post.businessDesc}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap hover:font-bold">
-                      <a href={`${post.downloadURL}`}>Download</a>
-                      { }
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {post.problemDesc}
                     </td>
                   </tr>
                 ))}
@@ -151,41 +145,7 @@ export default function AdminBC() {
             <select className='bg-[#121212] border col-span-6 w-full px-8 py-3 mb-4' id="bc-dropdown" onClick={updateSelect}></select>
 
 
-            {/* Input nama bisnis */}
-            <div className='flex items-center mb-4'>
-              <label htmlFor='url' className='block text-sm font-medium'>
-                Power BI Url
-              </label>
-            </div>
-            <div className='col-span-6'>
-              <input
-                type="text"
-                id='url'
-                className='w-full border bg-[#121212] rounded-md px-8 py-3 mb-4'
-                placeholder="Insert Your Power BI URL"
-                // value={businessName}
-                // onChange={(e) => setBusinessName(e.target.value)}
-                required
-              />
-            </div>
-
-            {/* Input deskripsi bisnis */}
-            <div className='flex mt-4'>
-              <label htmlFor='recommend' className='block text-sm font-medium'>
-                Recommendation
-              </label>
-            </div>
-            <div className='col-span-6 w-full'>
-              <textarea
-                id='recommend'
-                className='w-full rows-3 border bg-[#121212] resize-none rounded-md px-8 mb-4 pt-3 h-[160px]'
-                placeholder='Desribe Your Recommendation'
-                // value={businessDesc}
-                // onChange={(e) => setBusinessDesc(e.target.value)}
-                required
-              />
-            </div>
-
+ 
             {/* Input File */}
             <div className='flex items-center mb-4'>
               <label htmlFor='file' className='block text-sm font-medium'>
