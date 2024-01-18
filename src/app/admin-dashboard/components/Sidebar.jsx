@@ -3,7 +3,7 @@ const isPageActive = (pathname) => {
 };
 
 export default function Sidebar() {
-  return <div className='flex flex-col w-1/6 h-full py-8 gap-1 border-r bg-[#0C132F]'>
+  return <div className='flex flex-col px-4 h-full py-8 gap-1 border-r bg-[#0C132F]'>
     <a href="/admin-dashboard" className='hover:scale-110'>
       <div className='text-3xl font-bold text-center mt-10`'>Z-Sharp</div>
       <div className='text-xl font-bold text-center mt-10`'>Admin Dashboard</div>

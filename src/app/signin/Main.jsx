@@ -4,6 +4,7 @@ import { getFirestore, onSnapshot, collection, addDoc, orderBy, query, serverTim
 import { auth, app } from '../../../firebase';
 import { useNavigate } from 'react-router';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
+import { Link } from 'react-router-dom';
 
 const db = getFirestore(app);
 
@@ -63,10 +64,12 @@ function Signin() {
       setUser(user);
       isLoggingIn.current = true;
       setGoogleSuccessMessage(`Account logged in successfully via google! Welcome, ${user.displayName}`);
+      navigate('/user-dashboard');
       // Setelah menampilkan pesan sukses, kosongkan pesan setelah 3 detik (3000 milidetik)
       const timeoutId = setTimeout(() => {
         setGoogleSuccessMessage(null);
       }, 3000);
+      
 
       return () => clearTimeout(timeoutId); // Membersihkan timeout saat komponen di-unmount
     } catch (error) {
@@ -208,9 +211,9 @@ function Signin() {
             />
           </div>
           {error && <div className="text-red-500">{error}</div>}
-          <a href="/signup" className="text-sm mb-2" htmlFor="signUpHere">
+          <Link href="/signup" className="text-sm mb-2" >
             Sign Up here
-          </a>
+          </Link>
           <div className="flex flex-row">
             <div className="flex gap-4">
               <button

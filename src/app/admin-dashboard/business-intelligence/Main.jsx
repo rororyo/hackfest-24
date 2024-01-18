@@ -3,10 +3,12 @@ import { collection, onSnapshot } from 'firebase/firestore';
 import Sidebar from '../components/sidebar';
 import { db } from '../../../firebase';
 
-export default function UserBusinessIntelligence() {
+function isActive(input) {
+  return input ? 'font-bold underline' : 'font-semi-bold';
+}
 
-  const [request, setRequest] = useState(true);
-  const [result, setResult] = useState(false);
+export default function UserBusinessIntelligence() {
+  const [currentPage, setCurrentPage] = useState('request');
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]);
 
@@ -33,13 +35,7 @@ export default function UserBusinessIntelligence() {
   })
 
   // fungsi untuk cari tahu di halaman result atau report
-  function isActive(input) {
-    if (input == true) {
-      return 'font-bold underline';
-    } else {
-      return 'font-semi-bold';
-    }
-  }
+
 
   function updateSelect() {
     try {
@@ -60,27 +56,13 @@ export default function UserBusinessIntelligence() {
 
 
   // jika lagi di panel upload
-  if (request) {
+  if (currentPage == 'request') {
     return (
       <>
         <div className="flex border h-screen w-auto">
-
-          {/* Sidebar */}
           <Sidebar />
-
-          {/* dashboard content */}
           <div className="container grid h-10 grid-cols-7 mx-auto gap-3">
-
-            {/* navigation */}
-            <div className="col-span-7 flex mt-4 mx-auto">
-              <a onClick={() => { setRequest(true); setResult(false); }} className={"flex justify-left flex-row gap-8 m-4 " + isActive(request)} href='#'>
-                Request
-              </a>
-              <a onClick={() => { setRequest(false); setResult(true); }} className={"flex justify-left flex-row gap-8 m-4 " + isActive(result)} href='#'>
-                Result
-              </a>
-            </div>
-
+            <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
             <table className="col-span-7 min-w-full divide-y divide-gray-200">
               <thead>
                 <tr>
@@ -122,7 +104,7 @@ export default function UserBusinessIntelligence() {
         </div>
       </>
     );
-  } else if (result) // jika lagi di panel result
+  } else if (currentPage == 'result') // jika lagi di panel result
     return (
       <>
         <div className="flex border h-screen w-auto">
@@ -134,20 +116,13 @@ export default function UserBusinessIntelligence() {
           <div className='container grid h-10 grid-cols-7 mx-auto gap-3'>
 
             {/* navigation */}
-            <div className="col-span-7 flex mt-4 mx-auto">
-              <a onClick={() => { setRequest(true); setResult(false); }} className={"flex justify-left flex-row gap-8 m-4 " + isActive(request)} href='#'>
-                Request
-              </a>
-              <a onClick={() => { setRequest(false); setResult(true); }} className={"flex justify-left flex-row gap-8 m-4 " + isActive(result)} href='#'>
-                Result
-              </a>
-            </div>
+            <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
             {/* Dashboard */}
             <div className='flex items-center mb-4'>
               <p className='block text-sm font-medium'>Select inquiry: </p>
             </div>
-            <select className='bg-[#121212] border col-span-6 w-full px-8 py-3 mb-4' id="my-dropdown" onClick={`${updateSelect()}`}></select>
+            <select className='bg-[#121212] border col-span-6 w-full px-8 py-3 mb-4' id="my-dropdown" onClick={() => `${updateSelect()}`}></select>
 
             {/* Input nama bisnis */}
             <div className='flex items-center mb-4'>
@@ -226,4 +201,17 @@ export default function UserBusinessIntelligence() {
       </>
     );
 
+}
+
+function Navigation({ currentPage, setCurrentPage }) {
+  return (
+    <div className="col-span-7 flex mt-4 mx-auto">
+      <button onClick={() => setCurrentPage('request')} className={"flex justify-left flex-row gap-8 m-4 " + isActive(currentPage == 'request')}>
+        Request
+      </button>
+      <button onClick={() => setCurrentPage('result')} className={"flex justify-left flex-row gap-8 m-4 " + isActive(currentPage == 'result')}>
+        Result
+      </button>
+    </div>
+  )
 }
