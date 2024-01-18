@@ -1,8 +1,13 @@
-# React + Vite
+Untuk menjalankan program:
+1. Jalankan perintah npm i
+2. npm run dev
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Deskripsi Tim:
 
-Currently, two official plugins are available:
+Deskripsi Produk:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Z-Sharp merupakan sebuah platform digital yang bertujuan untuk mendukung keberlanjutan bisnis para wirausahawan. Platform ini menawarkan sejumlah fitur canggih, antara lain Business Assistant, Business Intelligence, Market Research, dan Business Consultant, semuanya dirancang untuk memberikan dukungan yang optimal bagi pengembangan dan kesuksesan bisnis Customer.
+
+Screenshot Produk:
+
+![image](https://github.com/rororyo/hackfest-24/assets/144687890/160e724d-b8d9-4707-9b19-09cd617e1ef8)
