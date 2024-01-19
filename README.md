@@ -2,7 +2,11 @@ Untuk menjalankan program:
 1. Jalankan perintah npm i
 2. npm run dev
 
-Deskripsi Tim:
+Deskripsi Tim: Tim yang berasal dari Insititut Teknologi Sepuluh Nopember. Mempunyai ambisi untuk membantu masyarakat sekitar melalui inovasi yang dikembangkan tim kami
+Hipster: Agung Dwi Oktavian
+Hustler: Muhammad Rayyaan Fatikhahur Rakhim 
+Hacker: -Nathaniel Ryo Kurniadi
+-Moch Avin
 
 Deskripsi Produk:
 
